@@ -1,0 +1,47 @@
+[[plugins]]
+repo = 'Shougo/unite.vim'
+
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+
+[[plugins]] # Controler of git
+repo = 'tpope/vim-fugitive'
+
+[[plugins]] # Print diff
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = 'Townk/vim-autoclose'
+
+[[plugins]]
+repo = 'vim-scripts/vim-auto-save'
+
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --all'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+
+[[plugins]]
+repo = 'dense-analysis/ale'
+
+[[plugins]]
+repo  = 'iamcco/markdown-preview.nvim'
+build = 'sh -c "cd app & yarn install"'
+on_ft = '["markdown", "pandoc.markdown", "rmd"]'
+
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+
+[[plugins]]
+repo = 'deoplete-plugins/deoplete-jedi'
