@@ -40,15 +40,15 @@ set expandtab
 set smarttab
 set tabstop=2
 set shiftwidth=2
+" Load files
+runtime keymap.vim
+runtime plugin.vim
 " Set Highlight
 set cursorline
 highlight cursorline cterm=underline
 " Make transparen background
 highlight Normal guibg=NONE ctermbg=NONE
-" Color on
-syntax on
 color dracula
 let g:dracula_colorterm = 0
-" Load files
-runtime keymap.vim
-runtime plugin.vim
+" Color on
+syntax on
