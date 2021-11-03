@@ -5,18 +5,23 @@ map <C-e> <Nop>
 map <C-f> <Nop>
 map <C-Tab> gt
 map <C-S-Tab> gT
-inoremap <C-f> <Esc>
+" When you escape from 'insert' Mode, switch IME to abc
+inoremap <C-f> <Esc> :silent !im-select com.apple.keylayout.ABC<Enter>
 cnoremap <C-f> <Esc>
 cnoremap <C-a> <C-b>
 vnoremap <C-f> <Esc>
 tnoremap <C-f> <C-\><C-n>
 nnoremap b :
-inoremap <C-j> <C-n>
-inoremap <C-k> <C-p>
 inoremap <C-d> <Del>
 inoremap <C-g> <C-y>
-nnoremap <C-j> <C-n>
-nnoremap <C-k> <C-p>
+inoremap <expr> <C-t> ddc#insert_candidate(0)
+" <TAB>: completion.
+inoremap <silent><expr> <TAB>
+\ pumvisible() ? '<C-n>' :
+\ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+\ '<TAB>' : ddc#manual_complete()
+" <S-TAB>: completion back.
+inoremap <expr><S-TAB>  pumvisible() ? '<C-p>' : '<C-h>'
 
 " ===========================
 " Move pain
@@ -35,9 +40,15 @@ map <C-l> <Nop>
 " fzf
 " ===========================
 nnoremap <silent> <C-l> :Files<CR>
-nnoremap <silent> <C-n> :terminal<CR>
-nnoremap <silent> <C-S> :cd <bar> :Files<CR>
-nnoremap <silent> <C-B> :Buffers<CR>
+nnoremap <silent> <C-s> :Files ~<CR>
+nnoremap <silent> <C-n> :Buffers<CR>
+nnoremap <silent> <C-t> :terminal<CR>
+nnoremap <silent> <C-p> :PreviewMarkdown<CR>
+
+" ===========================
+" Unite
+" ===========================
+nnoremap <silent> <C-i> :Unite buffer<CR>
 
 " ===========================
 " Easymotion
@@ -46,3 +57,4 @@ map <Leader> <Plug>(easymotion-prefix)
 nnoremap <space> <Plug>(easymotion-overwin-f2)
 " Disable default mappings
 let g:EasyMotion_do_mapping = 0
+

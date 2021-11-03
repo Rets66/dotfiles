@@ -5,6 +5,9 @@ repo = 'Shougo/unite.vim'
 repo = 'bronson/vim-trailing-whitespace'
 
 [[plugins]]
+repo = 'brglng/vim-im-select'
+
+[[plugins]]
 repo = 'vim-airline/vim-airline'
 
 [[plugins]]
@@ -30,9 +33,6 @@ build = './install --all'
 repo = 'junegunn/fzf.vim'
 
 [[plugins]]
-repo = 'dense-analysis/ale'
-
-[[plugins]]
 repo  = 'iamcco/markdown-preview.nvim'
 build = 'sh -c "cd app & yarn install"'
 on_ft = '["markdown", "pandoc.markdown", "rmd"]'
@@ -41,7 +41,30 @@ on_ft = '["markdown", "pandoc.markdown", "rmd"]'
 repo = 'easymotion/vim-easymotion'
 
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
+repo = 'vim-denops/denops.vim'
 
 [[plugins]]
-repo = 'deoplete-plugins/deoplete-jedi'
+repo = 'Shougo/ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-nextword'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-nvim-lsp'
+on_source = 'nvim-lspconfig'
+
+[[plugins]]
+repo = 'neovim/nvim-lspconfig'
+depends = 'impatient.nvim'
+on_ft = ['typescript', 'go']
+if = 'has("nvim")'
+depends = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-zsh'
+on_ft = 'zsh'
+depends = 'ddc.vim'
+
+[[plugins]]
+repo = 'skanehira/preview-markdown.vim'
