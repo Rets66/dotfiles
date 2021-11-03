@@ -8,7 +8,7 @@
 " Show Title
 set title
 " Time for key insert
-set ttimeoutlen=0
+set ttimeoutlen=1
 " Setting Language
 let $LANG = 'en_US.UTF-8'
 " Save the file auto
@@ -22,7 +22,7 @@ set encoding=utf-8
 " Show space
 set list
 " Ignore text case
-set ignorecase
+set noignorecase
 " Stop create swap file
 set noswapfile
 " Yanked text to store at clipboard
@@ -42,7 +42,7 @@ set tabstop=2
 set shiftwidth=2
 " Load files
 runtime keymap.vim
-runtime plugin.vim
+runtime plugins/config.vim
 " Set Highlight
 set cursorline
 highlight cursorline cterm=underline
