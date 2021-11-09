@@ -33,7 +33,7 @@ set splitright
 " Disable number when terminal is opened
 autocmd TermOpen * setlocal nonumber
 autocmd TermOpen * setlocal norelativenumber
-" Visualbell on, instead of the bell
+" Visual bell on, instead of the bell
 set visualbell
 " Use space instead of Tab
 set expandtab
@@ -46,9 +46,11 @@ runtime plugins/config.vim
 " Set Highlight
 set cursorline
 highlight cursorline cterm=underline
-" Make transparen background
+" Make transparent background
 highlight Normal guibg=NONE ctermbg=NONE
 color dracula
 let g:dracula_colorterm = 0
 " Color on
 syntax on
+" Spell check apply
+set spell
