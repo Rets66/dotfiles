@@ -44,6 +44,7 @@ nnoremap <silent> <C-s> :Files ~<CR>
 nnoremap <silent> <C-n> :Buffers<CR>
 nnoremap <silent> <C-t> :terminal<CR>
 nnoremap <silent> <C-p> :PreviewMarkdown<CR>
+nnoremap <silent> <C-e> :Unite buffer<CR>
 
 " ===========================
 " Unite
