@@ -52,5 +52,3 @@ color dracula
 let g:dracula_colorterm = 0
 " Color on
 syntax on
-" Spell check apply
-set spell

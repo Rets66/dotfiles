@@ -21,6 +21,7 @@ brew install tfenv
 brew install curl
 brew install wget
 brew install neovim
+brew install fd
 
 # Install Apps
 brew cask install firefox
