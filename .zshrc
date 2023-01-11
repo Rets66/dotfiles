@@ -3,16 +3,20 @@ defaults write -g InitialKeyRepeat -int 12
 # normal minimum is 2 (30 ms)
 defaults write -g KeyRepeat -int 1
 
-# set ssh key
-ssh-add -K ~/.ssh/id_rsa > /dev/null 2>&1
-
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 
 # emacs command mode like key bind
 bindkey -e
-
 # Compliment
-autoload -U compinit;
+autoload -zU compinit && compinit
+zstyle ':completion::complete:*' use-cache true
+zstyle ':completion:*:default' menu select=1
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+setopt auto_param_slash
+setopt mark_dirs
+# Comliment based on history
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Alias
 alias .2="cd ../../"
@@ -22,17 +26,16 @@ alias .5="cd ../../../../../"
 alias tf="terraform"
 alias genp="cat ~/.ssh/p.txt | tr -d '\n' | pbcopy"
 alias here="pwd | pbcopy"
-alias e="exa"
-alias zrc="source ~/.zshrc"
-alias vrc="source ~/.config/nvim/init.vim"
+alias ll="ls -lha"
 alias rf="rm -rf"
 alias vim="nvim"
-alias python="python3"
-#alias pip="pip3"
+alias python3="/opt/homebrew/opt/python@3.10/bin/python3.10"
+alias pip3="/opt/homebrew/opt/python@3.10/bin/pip3"
 alias rain="rainbowstream"
 alias vol="/usr/local/Cellar/volatility/2.6.1_2/bin/vol.py"
-alias zup="source ~/.zshrc"
+alias zup="source ~/.zshrc && exec $SHELL"
 alias vup="source ~/.config/nvim/init.vim"
+alias brew="arch -arm64 brew"
 
 # Github
 alias line="git log --graph --oneline -n"
@@ -67,6 +70,8 @@ alias get-cid='aws sts get-caller-identity'
 alias docker_rmi_notag='docker rmi -f $(docker images -f "dangling=true" -q)'
 
 # kubernetes
+## kubectl
+export PATH="${PATH}:${HOME}/.krew/bin"
 alias k="kubectl"
 alias ka="kubectl apply"
 alias kc="kubectl config"
@@ -95,23 +100,24 @@ alias perman="perman-aws-vault"
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+# Homebrew
+export PATH=$PATH:/opt/homebrew/bin
+# Rust
 export PATH=$PATH:$HOME/.cargo/bin
+# nvim
 export EDITOR=nvim
-export GOROOT=/usr/local/opt/go/libexec
+# go
+export PATH=$PATH:/usr/local/go/bin
 export GOPATH="$HOME/go"
-export PATH="$GOROOT/bin:$PATH"
-export PATH="$GOPATH/bin:$PATH"
-typeset -U path PATH # 重複パスを削除
+export PATH=$PATH:$HOME/go/bin
+
+# universal
+# delete overlapped PATH
+typeset -U path PATH
 
 # pyenv
 #export PYENV_ROOT="$HOME/.pyenv"
 #export PATH="$PYENV_ROOT/bin:$PATH"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/s09146/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/s09146/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/s09146/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/s09146/google-cloud-sdk/completion.zsh.inc'; fi
 
 # configuration for fzf
 # File Open
@@ -128,29 +134,16 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# The next line updates PATH for the Google Cloud SDK.
+#if [ -f '/Users/s09146/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/s09146/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '~/google-cloud-sdk/path.zsh.inc' ]; then . '~/google-cloud-sdk/path.zsh.inc'; fi
 
-# go-powerline
-#function powerline_precmd() {
-#    PS1="$($GOPATH/bin/powerline-go -error $? -jobs ${${(%):%j}:-0})"
-#
-#    # Uncomment the following line to automatically clear errors after showing
-#    # them once. This not only clears the error for powerline-go, but also for
-#    # everything else you run in that shell. Don't enable this if you're not
-#    # sure this is what you want.
-#
-#    #set "?"
-#}
-#
-#function install_powerline_precmd() {
-#  for s in "${precmd_functions[@]}"; do
-#    if [ "$s" = "powerline_precmd" ]; then
-#      return
-#    fi
-#  done
-#  precmd_functions+=(powerline_precmd)
-#}
-#
-#if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
-#    install_powerline_precmd
-#fi
+# The next line enables shell command completion for gcloud.
+#if [ -f '/Users/s09146/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/s09146/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '~/google-cloud-sdk/completion.zsh.inc' ]; then . '~/google-cloud-sdk/completion.zsh.inc'; fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/s09146/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/s09146/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/s09146/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/s09146/google-cloud-sdk/completion.zsh.inc'; fi

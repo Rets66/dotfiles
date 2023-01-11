@@ -38,8 +38,8 @@ set visualbell
 " Use space instead of Tab
 set expandtab
 set smarttab
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 " Load files
 runtime keymap.vim
 runtime plugins/config.vim
@@ -52,5 +52,4 @@ color dracula
 let g:dracula_colorterm = 0
 " Color on
 syntax on
-" Spell check apply
-set spell
+highlight ExtraWhitespace ctermbg=NONE
