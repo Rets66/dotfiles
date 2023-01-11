@@ -9,18 +9,19 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 brew update
 brew upgrade
 
-# Install tools
-brew install ripgrep
+# Install CLI tools
+brew install neovim
 brew install jq
 brew install tree
+brew install curl
+brew install ranger
+brew install wget
+brew install ripgrep
 brew install kubectl
 brew install kustomize
 brew install go
-brew install ranger
+brew install fd
 brew install tfenv
-brew install curl
-brew install wget
-brew install neovim
 
 # Install Apps
 brew cask install firefox
