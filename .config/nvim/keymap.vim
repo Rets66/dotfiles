@@ -41,7 +41,7 @@ map <C-l> <Nop>
 nnoremap <silent> <C-l> :Files<CR>
 nnoremap <silent> <C-s> :Files ~<CR>
 nnoremap <silent> <C-n> :Buffers<CR>
-nnoremap <silent> <C-t> :terminal<CR>
+nnoremap <silent> <C-t> :terminal<CR> :highlight ExtraWhitespace ctermbg=none<CR>
 nnoremap <silent> <C-p> :PreviewMarkdown<CR>
 nnoremap <silent> <C-e> :Unite buffer<CR>
 
