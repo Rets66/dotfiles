@@ -14,7 +14,8 @@ let $LANG = 'en_US.UTF-8'
 " Save the file auto
 set autowriteall
 " Detect file type
-filetype plugin on
+" filetype plugin on
+filetype indent plugin on
 " File complement
 set wildmode=longest,list
 " Encoding Setting
@@ -43,6 +44,7 @@ set shiftwidth=4
 " Load files
 runtime keymap.vim
 runtime plugins/config.vim
+" runtime plugins/config.vim
 " Set Highlight
 set cursorline
 highlight cursorline cterm=underline
@@ -51,5 +53,6 @@ highlight Normal guibg=NONE ctermbg=NONE
 color dracula
 let g:dracula_colorterm = 0
 " Color on
-syntax on
+" syntax on
+syntax enable
 highlight ExtraWhitespace ctermbg=NONE

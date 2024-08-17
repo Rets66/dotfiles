@@ -2,12 +2,6 @@
 repo = 'Shougo/unite.vim'
 
 [[plugins]]
-repo = 'bronson/vim-trailing-whitespace'
-
-[[plugins]]
-repo = 'brglng/vim-im-select'
-
-[[plugins]]
 repo = 'vim-airline/vim-airline'
 
 [[plugins]]
@@ -39,32 +33,6 @@ on_ft = '["markdown", "pandoc.markdown", "rmd"]'
 
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
-
-[[plugins]]
-repo = 'vim-denops/denops.vim'
-
-[[plugins]]
-repo = 'Shougo/ddc.vim'
-
-[[plugins]]
-repo = 'Shougo/ddc-nextword'
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'Shougo/ddc-nvim-lsp'
-on_source = 'nvim-lspconfig'
-
-[[plugins]]
-repo = 'neovim/nvim-lspconfig'
-depends = 'impatient.nvim'
-on_ft = ['typescript', 'go']
-if = 'has("nvim")'
-depends = 'ddc.vim'
-
-[[plugins]]
-repo = 'Shougo/ddc-zsh'
-on_ft = 'zsh'
-depends = 'ddc.vim'
 
 [[plugins]]
 repo = 'skanehira/preview-markdown.vim'

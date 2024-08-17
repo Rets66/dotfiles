@@ -1,19 +1,25 @@
 " ===========================
 " Set 'dein.vim' configuration
+" ===========================
 if &compatible
   set nocompatible
 endif
 
-" Add the dein installation directory into runtimepath
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+" Set Dein base path (required)
+let s:dein_base = '~/.cache/dein'
 
-" Define the path
-let s:dein_dir = expand('~/.cache/dein')
-let s:toml_dir = expand('~/.config/nvim')
+" Set Dein source path (required)
+let s:dein_src = '~/.cache/dein/repos/github.com/Shougo/dein.vim'
+
+" Set Dein runtime path (required)
+execute 'set runtimepath+=' . s:dein_src
+
+" Set Dein plugin path
+let s:toml_dir = '~/.config/nvim'
 
 " Loading configuration
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
+if dein#load_state(s:dein_base)
+  call dein#begin(s:dein_base)
   call dein#load_toml(s:toml_dir . '/plugins/dein.toml', {'lazy': 0})
   call dein#end()
   call dein#save_state()
@@ -62,33 +68,3 @@ let g:loaded_python_provider = 0
 
 " Preview markdown
 let g:preview_markdown_parser='mdcat'
-
-" Use ddc
-call ddc#enable()
-" Use around as source
-" Enable keyword completion from buffer
-" Start key : <C-n> or <C-p>
-call ddc#custom#patch_global('sources', ['around', 'nvimlsp', 'zsh'])
-call ddc#custom#patch_global('completionMode', 'inline')
-call ddc#custom#patch_global('sourceOptions', {
-      \   '_': {
-      \     'ignoreCase': v:true,
-      \     'matchers': ['matcher_head'],
-      \     'sorters': ['sorter_rank']
-      \   },
-      \   'around': {
-      \     'mark': 'A',
-      \     'matchers': ['matcher_head', 'matcher_length'],
-      \   },
-      \   'nvimlsp': {
-      \     'mark': 'lsp',
-      \     'forceCompletionPattern': '\.\w*|:\w*|->\w*'
-      \   },
-      \   'nextword': {
-      \     'mark': 'nextword',
-      \     'minAutoCompleteLength': 3,
-      \     'isVolatile': v:true,
-      \   },
-      \   'zsh': {'mark': 'Z'},
-      \ })
-set completeopt+=noinsert
