@@ -1,9 +1,15 @@
 # normal minimum is 15 (225 ms)
-defaults write -g InitialKeyRepeat -int 12
+# defaults write -g InitialKeyRepeat -int 12
 # normal minimum is 2 (30 ms)
-defaults write -g KeyRepeat -int 1
+# defaults write -g KeyRepeat -int 1
 
-source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+# Oh-My-Posh
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="agnoster"
+plugins=(git)
+source $ZSH/oh-my-zsh.sh
+
+# source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 
 # emacs command mode like key bind
 bindkey -e
@@ -16,7 +22,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 setopt auto_param_slash
 setopt mark_dirs
 # Comliment based on history
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Alias
 alias .2="cd ../../"
@@ -35,7 +41,7 @@ alias rain="rainbowstream"
 alias vol="/usr/local/Cellar/volatility/2.6.1_2/bin/vol.py"
 alias zup="source ~/.zshrc && exec $SHELL"
 alias vup="source ~/.config/nvim/init.vim"
-alias brew="arch -arm64 brew"
+# alias brew="arch -arm64 brew"
 
 # Github
 alias line="git log --graph --oneline -n"
